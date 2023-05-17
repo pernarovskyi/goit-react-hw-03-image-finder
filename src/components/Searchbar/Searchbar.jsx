@@ -13,22 +13,21 @@ export class Searchbar extends Component {
     searchString: '',
   };
 
-  handleInputChange = e => {    
+  handleInputChange = e => {
     this.setState({
-        searchString: e.currentTarget.value.toLowerCase(),
+      searchString: e.currentTarget.value.toLowerCase(),
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    if(this.state.searchString.trim() === '')
-    {
-        toast.error('Nothing to search', {autoClose: 1500});
-        return;
+    if (this.state.searchString.trim() === '') {
+      toast.error('Nothing to search', { autoClose: 1500 });
+      return;
     }
     this.props.onSubmit(this.state.searchString);
-    this.setState({searchString: '',});
+    this.setState({ searchString: '' });
   };
 
   render() {
@@ -39,7 +38,7 @@ export class Searchbar extends Component {
             <SearchFormButtonLabel>Search</SearchFormButtonLabel>
           </SearchFormButton>
 
-          <SearchFormInput           
+          <SearchFormInput
             type="text"
             autoComplete="off"
             autoFocus
